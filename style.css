@@ -1,0 +1,24 @@
+body{
+    align-items: center;
+}
+
+.group_links{
+    border: 1px solid black;
+    text-align: center;
+}
+
+.table_customers{
+    border: 1px solid black;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.description_list{
+    text-align: left;
+}
+
+#add_customer{
+    display: table-column;
+    text-align: justify;
+    align-self: start;
+}

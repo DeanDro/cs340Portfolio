@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Group 29 - Palm Tree Resort Spa Database</title>
+        <link text="text/css" rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <h1 style="text-align: center;">Palm Tree Resort Span</h1>
+        <br>
+        <div class="group_links">
+            <a href="./index.html" class="page_link">Home</a>
+            <a href="./customers.html" class="page_link">Customers</a>
+            <a href="./rooms.html" class="page_link">Rooms</a>
+            <a href="#" class="page_link">Reservations</a>
+            <a href="#" class="page_link">Discounts</a>
+        </div>
+        <br>
+        <div>
+            <table class="table_customers>
+                <thead>
+                    <tr class="table_customers">
+                        <th class="table_customers">Select</th>
+                        <th class="table_customers">Room ID</th>
+                        <th class="table_customers">Room Size</th>
+                        <th class="table_customers">Room Type</th>
+                        <th class="table_customers">Number Room</th>
+                        <th class="table_customers">Room Availability</th>
+                        <th class="table_customers">Room Floor</th>
+                        <th class="table_customers">Flat Rate per Night</th>
+                    </tr>
+                    <tbody>
+                        <tr>
+                            <td class="table_customers"><input name="customer_id" type="checkbox"></td>
+                            <td class="table_customers">1</td>
+                            <td class="table_customers">2</td>
+                            <td class="table_customers">Sea View</td>
+                            <td class="table_customers">12</td>
+                            <td class="table_customers">0</td>
+                            <td class="table_customers">1</td>
+                            <td class="table_customers">500</td>
+                        </tr>
+                        <tr>
+                            <td class="table_customers"><input name="customer_id" type="checkbox"></td>
+                            <td class="table_customers">2</td>
+                            <td class="table_customers">4</td>
+                            <td class="table_customers">Garden View</td>
+                            <td class="table_customers">10</td>
+                            <td class="table_customers">0</td>
+                            <td class="table_customers">1</td>
+                            <td class="table_customers">700</td>
+                        </tr>
+                        <tr>
+                            <td class="table_customers"><input name="customer_id" type="checkbox"></td>
+                            <td class="table_customers">3</td>
+                            <td class="table_customers">3</td>
+                            <td class="table_customers">Garden View</td>
+                            <td class="table_customers">5</td>
+                            <td class="table_customers">1</td>
+                            <td class="table_customers">1</td>
+                            <td class="table_customers">350</td>
+                        </tr>
+                        <tr>
+                            <td class="table_customers"><input name="customer_id" type="checkbox"></td>
+                            <td class="table_customers">4</td>
+                            <td class="table_customers">4</td>
+                            <td class="table_customers">Sea View</td>
+                            <td class="table_customers">14</td>
+                            <td class="table_customers">0</td>
+                            <td class="table_customers">2</td>
+                            <td class="table_customers">1000</td>
+                        </tr>
+                        <tr>
+                            <td class="table_customers"><input name="customer_id" type="checkbox"></td>
+                            <td class="table_customers">5</td>
+                            <td class="table_customers">3</td>
+                            <td class="table_customers">Street View</td>
+                            <td class="table_customers">22</td>
+                            <td class="table_customers">0</td>
+                            <td class="table_customers">1</td>
+                            <td class="table_customers">400</td>
+                        </tr>
+                    </tbody>
+                </thead>
+            </table>
+            <br>
+            <button id="add_new_customer">Add Room</button>
+            <button id="delete_customer">Delete Room</button>
+            <button id="update_customer">Update Room</button>
+        </div>
+        <br>
+        <div id="add_customer" style="display: none">
+            <form id="input_customer" style="text-align: left;">
+                <div class="row">
+                <label for="room_size">Room Size:</label>
+                <input type="text" id="room_size" name="room_size">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="room_type">Room Type:</label>
+                    <input type="text" id="room_type" name="room_type">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="country">Country:</label>
+                    <input type="text" id="country" name="country">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="zip_code">Zip Code:</label>
+                    <input type="text" id="zip_code" name="zip_code">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="phone">Phone Number:</label>
+                    <input type="text" id="phone" name="phone">
+                </div>
+                <br>
+                <div class="row">
+                <label for="credit_card">Credit Card Number:</label>
+                <input type="text" id="credit_card" name="credit_card">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="security_code">Credit Card Security Number:</label>
+                    <input type="text" id="security_code" name="security_code">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="total_days">Total Days Stayed:</label>
+                    <input type="text" id="total_days" name="total_days">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="total_spent">Total Spent:</label>
+                    <input type="text" id="total_spent" name="total_spent">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="special_request">Special Request:</label>
+                    <input type="text" id="special_request" name="special_request">
+                </div>
+                <br>
+                <input type="submit" value="Submit">
+                <input type="button" value="Cancel">
+            </form>
+        </div>
+        <br>
+        <script>
+            document.getElementById('add_new_customer').addEventListener('click', ()=>{
+                let add_form = document.getElementById('add_customer');
+                if (add_form.style.display === 'none') {
+                    add_form.style.display = 'block';
+                } else{
+                    add_form.style.display = 'none';
+                }
+            })
+            
+        </script>
+    </body>
+</html>

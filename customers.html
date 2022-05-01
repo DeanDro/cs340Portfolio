@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Group 29 - Palm Tree Resort Spa Database</title>
+        <link text="text/css" rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <h1 style="text-align: center;">Palm Tree Resort Span</h1>
+        <br>
+        <div class="group_links">
+            <a href="./index.html" class="page_link">Home</a>
+            <a href="./customers.html" class="page_link">Customers</a>
+            <a href="./rooms.html" class="page_link">Rooms</a>
+            <a href="#" class="page_link">Reservations</a>
+            <a href="#" class="page_link">Discounts</a>
+        </div>
+        <br>
+        <h3>Customers</h3>
+        <div style="text-align: center;">
+            <table class="table_customers">
+                <thead>
+                    <tr class="table_customers">
+                        <th class="table_customers">Select</th>
+                        <th class="table_customers">Customer ID</th>
+                        <th class="table_customers">Customer First Name</th>
+                        <th class="table_customers">Customer Last Name</th>
+                        <th class="table_customers">Address</th>
+                        <th class="table_customers">Country</th>
+                        <th class="table_customers">Zip Code</th>
+                        <th class="table_customers">Phone</th>
+                        <th class="table_customers">Credit Card Number</th>
+                        <th class="table_customers">Credit Card Security Number</th>
+                        <th class="table_customers">Total Days Stayed</th>
+                        <th class="table_customers">Total Spent</th>
+                        <th class="table_customers">Special Request</th>
+                    </tr>
+                    <tbody>
+                        <tr>
+                            <td class="table_customers"><input name="customer_id" type="checkbox"></td>
+                            <td class="table_customers">1</td>
+                            <td class="table_customers">David</td>
+                            <td class="table_customers">Adams</td>
+                            <td class="table_customers">22nd Street</td>
+                            <td class="table_customers">USA</td>
+                            <td class="table_customers">10022</td>
+                            <td class="table_customers">5552218572</td>
+                            <td class="table_customers">1112223200002213</td>
+                            <td class="table_customers">223</td>
+                            <td class="table_customers">5</td>
+                            <td class="table_customers">1000</td>
+                            <td class="table_customers">None</td>
+                        </tr>
+                        <tr>
+                            <td class="table_customers"><input name="customer_id" type="checkbox"></td>
+                            <td class="table_customers">2</td>
+                            <td class="table_customers">Eric</td>
+                            <td class="table_customers">Smith</td>
+                            <td class="table_customers">33 Prospect Street</td>
+                            <td class="table_customers">USA</td>
+                            <td class="table_customers">07802</td>
+                            <td class="table_customers">9732221234</td>
+                            <td class="table_customers">1234122209874536</td>
+                            <td class="table_customers">222</td>
+                            <td class="table_customers">3</td>
+                            <td class="table_customers">600</td>
+                            <td class="table_customers">Peanut Allergy</td>
+                        </tr>
+                        <tr>
+                            <td class="table_customers"><input name="customer_id" type="checkbox"></td>
+                            <td class="table_customers">3</td>
+                            <td class="table_customers">Andrea</td>
+                            <td class="table_customers">Rose</td>
+                            <td class="table_customers">1982 Sunset Blvd</td>
+                            <td class="table_customers">USA</td>
+                            <td class="table_customers">00221</td>
+                            <td class="table_customers">5628881234</td>
+                            <td class="table_customers">2162958262129999</td>
+                            <td class="table_customers">113</td>
+                            <td class="table_customers">19</td>
+                            <td class="table_customers">9299</td>
+                            <td class="table_customers">None</td>
+                        </tr>
+                        <tr>
+                            <td class="table_customers"><input name="customer_id" type="checkbox"></td>
+                            <td class="table_customers">4</td>
+                            <td class="table_customers">Olivia</td>
+                            <td class="table_customers">Rodrigues</td>
+                            <td class="table_customers">11 Market Street</td>
+                            <td class="table_customers">USA</td>
+                            <td class="table_customers">22111</td>
+                            <td class="table_customers">9020002812</td>
+                            <td class="table_customers">3374992174632211</td>
+                            <td class="table_customers">009</td>
+                            <td class="table_customers">5</td>
+                            <td class="table_customers">800</td>
+                            <td class="table_customers">Cat Allergy</td>
+                        </tr>
+                        <tr>
+                            <td class="table_customers"><input name="customer_id" type="checkbox"></td>
+                            <td class="table_customers">5</td>
+                            <td class="table_customers">Harry</td>
+                            <td class="table_customers">Potter</td>
+                            <td class="table_customers">223 Gryffindor</td>
+                            <td class="table_customers">UK</td>
+                            <td class="table_customers">09211</td>
+                            <td class="table_customers">7231122222</td>
+                            <td class="table_customers">9292848422223333</td>
+                            <td class="table_customers">123</td>
+                            <td class="table_customers">5</td>
+                            <td class="table_customers">800</td>
+                            <td class="table_customers">None</td>
+                        </tr>
+                    </tbody>
+                </thead>
+            </table>
+            <br>
+            <button id="add_new_customer">Add Customer</button>
+            <button id="delete_customer">Delete Customer</button>
+            <button id="update_customer">Update Customer</button>
+        </div>
+        <br>
+        <div id="add_customer" style="display: none">
+            <form id="input_customer" style="text-align: left;">
+                <div class="row">
+                <label for="first_name">Customer First Name:</label>
+                <input type="text" id="first_name" name="first_name">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="last_name">Customer Last Name:</label>
+                    <input type="text" id="last_name" name="last_name">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="country">Country:</label>
+                    <input type="text" id="country" name="country">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="zip_code">Zip Code:</label>
+                    <input type="text" id="zip_code" name="zip_code">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="phone">Phone Number:</label>
+                    <input type="text" id="phone" name="phone">
+                </div>
+                <br>
+                <div class="row">
+                <label for="credit_card">Credit Card Number:</label>
+                <input type="text" id="credit_card" name="credit_card">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="security_code">Credit Card Security Number:</label>
+                    <input type="text" id="security_code" name="security_code">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="total_days">Total Days Stayed:</label>
+                    <input type="text" id="total_days" name="total_days">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="total_spent">Total Spent:</label>
+                    <input type="text" id="total_spent" name="total_spent">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="special_request">Special Request:</label>
+                    <input type="text" id="special_request" name="special_request">
+                </div>
+                <br>
+                <input type="submit" value="Submit">
+                <input type="button" value="Cancel">
+            </form>
+        </div>
+        <br>
+        <script>
+            document.getElementById('add_new_customer').addEventListener('click', ()=>{
+                let add_form = document.getElementById('add_customer');
+                if (add_form.style.display === 'none') {
+                    add_form.style.display = 'block';
+                } else{
+                    add_form.style.display = 'none';
+                }
+            })
+            
+        </script>
+    </body>
+</html>
