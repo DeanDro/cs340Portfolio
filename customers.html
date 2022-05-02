@@ -20,7 +20,8 @@
             <table class="table_customers">
                 <thead>
                     <tr class="table_customers">
-                        <th class="table_customers">Select</th>
+                        <th class="table_customers">Update</th>
+                        <th class="table_customers">Delete</th>
                         <th class="table_customers">Customer ID</th>
                         <th class="table_customers">Customer First Name</th>
                         <th class="table_customers">Customer Last Name</th>
@@ -36,7 +37,8 @@
                     </tr>
                     <tbody>
                         <tr>
-                            <td class="table_customers"><input name="customer_id" type="checkbox"></td>
+                            <td class="table_customers"><a href="#" id="edit_customer">Edit</a></td>
+                            <td class="table_customers"><a href="#" id="delete_customer">Delete</a></td>
                             <td class="table_customers">1</td>
                             <td class="table_customers">David</td>
                             <td class="table_customers">Adams</td>
@@ -51,7 +53,8 @@
                             <td class="table_customers">None</td>
                         </tr>
                         <tr>
-                            <td class="table_customers"><input name="customer_id" type="checkbox"></td>
+                            <td class="table_customers"><a href="#" id="edit_customer">Edit</a></td>
+                            <td class="table_customers"><a href="#" id="delete_customer">Delete</a></td>
                             <td class="table_customers">2</td>
                             <td class="table_customers">Eric</td>
                             <td class="table_customers">Smith</td>
@@ -66,7 +69,8 @@
                             <td class="table_customers">Peanut Allergy</td>
                         </tr>
                         <tr>
-                            <td class="table_customers"><input name="customer_id" type="checkbox"></td>
+                            <td class="table_customers"><a href="#" id="edit_customer">Edit</a></td>
+                            <td class="table_customers"><a href="#" id="delete_customer">Delete</a></td>
                             <td class="table_customers">3</td>
                             <td class="table_customers">Andrea</td>
                             <td class="table_customers">Rose</td>
@@ -81,7 +85,8 @@
                             <td class="table_customers">None</td>
                         </tr>
                         <tr>
-                            <td class="table_customers"><input name="customer_id" type="checkbox"></td>
+                            <td class="table_customers"><a href="#" id="edit_customer">Edit</a></td>
+                            <td class="table_customers"><a href="#" id="delete_customer">Delete</a></td>
                             <td class="table_customers">4</td>
                             <td class="table_customers">Olivia</td>
                             <td class="table_customers">Rodrigues</td>
@@ -96,7 +101,8 @@
                             <td class="table_customers">Cat Allergy</td>
                         </tr>
                         <tr>
-                            <td class="table_customers"><input name="customer_id" type="checkbox"></td>
+                            <td class="table_customers"><a href="#" id="edit_customer">Edit</a></td>
+                            <td class="table_customers"><a href="#" id="delete_customer">Delete</a></td>
                             <td class="table_customers">5</td>
                             <td class="table_customers">Harry</td>
                             <td class="table_customers">Potter</td>
@@ -115,8 +121,6 @@
             </table>
             <br>
             <button id="add_new_customer">Add Customer</button>
-            <button id="delete_customer">Delete Customer</button>
-            <button id="update_customer">Update Customer</button>
         </div>
         <br>
         <div id="add_customer" style="display: none">
@@ -177,10 +181,91 @@
                 </div>
                 <br>
                 <input type="submit" value="Submit">
-                <input type="button" value="Cancel">
+                <input type="button" value="Cancel" id="cancel">
             </form>
         </div>
         <br>
+        <div id="edit_segm" style="display: none;">
+            <h3>Edit Customer</h3>
+            <form id="edit_form" style="text-align: left;">
+                <div class="row">
+                <label for="customer_first_name">Customer First Name:</label>
+                <input type="text" id="customer_first_name" name="customer_first_name">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="customer_last_name">Customer Last Name:</label>
+                    <input type="text" id="customer_last_name" name="customer_last_name">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="country">Country:</label>
+                    <input type="text" id="country" name="country">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="zip_code">Zip Code:</label>
+                    <input type="text" id="zip_code" name="zip_code">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="phone">Phone:</label>
+                    <input type="text" id="phone" name="phone">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="credit_card">Credit Card Number:</label>
+                    <input type="text" id="credit_card" name="credit_card">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="security_code">Credit Card Security Number:</label>
+                    <input type="text" id="security_code" name="security_code">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="total_days">Total Days Stayed:</label>
+                    <input type="number" id="total_days" name="total_days">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="total_spent">Total Spent:</label>
+                    <input type="number" id="total_spent" name="total_spent">
+                </div>
+                <br>
+                <input type="submit" value="Submit" id="sub">
+                <input type="button" value="Cancel" id="Cancel_update">
+            </form>
+        </div>
+        <br>
+        <div id="delete_segm" style="display: none;">
+            <h3>Delete Customer</h3>
+            <p style="font-weight: bold; color: red; font-size: 20px;">Are you sure you want to delete this customer?</p>
+            <form id="delete_form" style="text-align: left;">
+                <div class="row">
+                    <label for="customer_id">Customer ID:</label>
+                    <input type="number" id="customer_id" name="customer_id">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="first_name">Customer First Name:</label>
+                    <input type="text" id="first_name" name="first_name">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="last_name">Customer Last Name:</label>
+                    <input type="text" id="last_name" name="last_name">
+                </div>
+                <br>
+                <input type="submit" value="Submit" id="sub">
+                <input type="button" value="Cancel" id="cancel_delete">
+            </form>
+        </div>
         <script>
             document.getElementById('add_new_customer').addEventListener('click', ()=>{
                 let add_form = document.getElementById('add_customer');
@@ -190,6 +275,32 @@
                     add_form.style.display = 'none';
                 }
             })
+
+            document.getElementById('cancel').addEventListener('click',()=>{
+                let add_form = document.getElementById('add_customer');
+                add_form.style.display = 'none';
+            });
+
+            document.getElementById('edit_customer').addEventListener('click', ()=>{
+                let edit_form = document.getElementById('edit_segm');
+                edit_form.style.display = 'block';
+            });
+
+            document.getElementById('Cancel_update').addEventListener('click', ()=>{
+                let edit_form = document.getElementById('edit_segm');
+                edit_form.style.display = 'none';
+            });
+
+            document.getElementById('delete_customer').addEventListener('click', ()=>{
+                let edit_form = document.getElementById('delete_segm');
+                edit_form.style.display = 'block';
+            });
+
+            document.getElementById('cancel_delete').addEventListener('click', ()=>{
+                let edit_form = document.getElementById('delete_segm');
+                edit_form.style.display = 'none';
+            });
+
             
         </script>
     </body>

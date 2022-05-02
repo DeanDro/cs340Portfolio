@@ -1,5 +1,7 @@
-body{
-    align-items: center;
+
+
+#table_segment{
+    text-align: center;
 }
 
 .group_links{
@@ -11,6 +13,7 @@ body{
     border: 1px solid black;
     text-align: center;
     word-wrap: break-word;
+    min-width: 40px;
 }
 
 .description_list{

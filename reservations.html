@@ -16,10 +16,12 @@
         </div>
         <br>
         <div>
-            <table class="table_customers>
+            <h3>Reservations</h3>
+            <table class="table_customers">
                 <thead>
                     <tr class="table_customers">
-                        <th class="table_customers">Select</th>
+                        <th class="table_customers">Update</th>
+                        <th class="table_customers">Delete</th>
                         <th class="table_customers">Reservation ID</th>
                         <th class="table_customers">Customer ID</th>
                         <th class="table_customers">Room ID</th>
@@ -30,7 +32,8 @@
                     </tr>
                     <tbody>
                         <tr>
-                            <td class="table_customers"><input name="customer_id" type="checkbox"></td>
+                            <td class="table_customers"><a href="#" onclick="edit_function()">Edit</a></td>
+                            <td class="table_customers"><a href="#" onclick="delete_function()">Delete</a></td>
                             <td class="table_customers">1</td>
                             <td class="table_customers">1</td>
                             <td class="table_customers">2</td>
@@ -40,7 +43,8 @@
                             <td class="table_customers">1</td>
                         </tr>
                         <tr>
-                            <td class="table_customers"><input name="customer_id" type="checkbox"></td>
+                            <td class="table_customers"><a href="#" onclick="edit_function()">Edit</a></td>
+                            <td class="table_customers"><a href="#" onclick="delete_function()">Delete</a></td>
                             <td class="table_customers">2</td>
                             <td class="table_customers">2</td>
                             <td class="table_customers">1</td>
@@ -50,7 +54,8 @@
                             <td class="table_customers">1</td>
                         </tr>
                         <tr>
-                            <td class="table_customers"><input name="customer_id" type="checkbox"></td>
+                            <td class="table_customers"><a href="#" onclick="edit_function()">Edit</a></td>
+                            <td class="table_customers"><a href="#" onclick="delete_function()">Delete</a></td>
                             <td class="table_customers">3</td>
                             <td class="table_customers">5</td>
                             <td class="table_customers">4</td>
@@ -60,7 +65,8 @@
                             <td class="table_customers">1</td>
                         </tr>
                         <tr>
-                            <td class="table_customers"><input name="customer_id" type="checkbox"></td>
+                            <td class="table_customers"><a href="#" onclick="edit_function()">Edit</a></td>
+                            <td class="table_customers"><a href="#" onclick="delete_function()">Delete</a></td>
                             <td class="table_customers">4</td>
                             <td class="table_customers">4</td>
                             <td class="table_customers">1</td>
@@ -74,8 +80,6 @@
             </table>
             <br>
             <button id="add_new_customer">Add Reservation</button>
-            <button id="delete_customer">Delete Reservation</button>
-            <button id="update_customer">Update Reservation</button>
         </div>
         <br>
         <div id="add_customer" style="display: none">
@@ -111,10 +115,65 @@
                 </div>
                 <br>
                 <input type="submit" value="Submit">
-                <input type="button" value="Cancel">
+                <input type="button" value="Cancel" id="cancel">
             </form>
         </div>
         <br>
+        <div id="edit_segm" style="display: none">
+            <form id="input_customer" style="text-align: left;">
+                <div class="row">
+                <label for="room_size">Customer ID:</label>
+                <input type="text" id="room_size" name="room_size">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="room_type">Room ID:</label>
+                    <input type="text" id="room_type" name="room_type">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="address">Date Reservation Starts:</label>
+                    <input type="date" id="address" name="address">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="country">Date Reservation Ends:</label>
+                    <input type="date" id="country" name="country">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="zip_code">Total Nights Cost:</label>
+                    <input type="number" id="zip_code" name="zip_code">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="phone">Pending Payment (Check for yes):</label>
+                    <input type="checkbox" id="phone" name="phone">
+                </div>
+                <br>
+                <input type="submit" value="Submit">
+                <input type="button" value="Cancel" id="Cancel_update">
+            </form>
+        </div>
+        <br>
+        <div id="delete_segm" style="display: none;">
+            <h3>Delete Room</h3>
+            <p style="font-weight: bold; color: red; font-size: 20px;">Are you sure you want to delete this Reservation?</p>
+            <form id="delete_form" style="text-align: left;">
+                <div class="row">
+                    <label for="Reservation_ID">Reservation ID:</label>
+                    <input type="number" id="Reservation_ID" name="Reservation_ID">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="room_number">Room Number:</label>
+                    <input type="text" id="first_name" name="first_name">
+                </div>
+                <br>
+                <input type="submit" value="Submit" id="sub">
+                <input type="button" value="Cancel" id="cancel_delete">
+            </form>
+        </div>
         <script>
             document.getElementById('add_new_customer').addEventListener('click', ()=>{
                 let add_form = document.getElementById('add_customer');
@@ -124,6 +183,30 @@
                     add_form.style.display = 'none';
                 }
             })
+            document.getElementById('cancel').addEventListener('click',()=>{
+                let add_form = document.getElementById('add_customer');
+                add_form.style.display = 'none';
+            });
+
+            document.getElementById('Cancel_update').addEventListener('click', ()=>{
+                let edit_form = document.getElementById('edit_segm');
+                edit_form.style.display = 'none';
+            });
+
+            document.getElementById('cancel_delete').addEventListener('click', ()=>{
+                let edit_form = document.getElementById('delete_segm');
+                edit_form.style.display = 'none';
+            });
+
+            function delete_function(){
+                let edit_form = document.getElementById('delete_segm');
+                edit_form.style.display = 'block';
+            }
+
+            function edit_function(){
+                let edit_form = document.getElementById('edit_segm');
+                edit_form.style.display = 'block';
+            }
             
         </script>
     </body>
