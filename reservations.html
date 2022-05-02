@@ -20,104 +20,94 @@
                 <thead>
                     <tr class="table_customers">
                         <th class="table_customers">Select</th>
+                        <th class="table_customers">Reservation ID</th>
+                        <th class="table_customers">Customer ID</th>
                         <th class="table_customers">Room ID</th>
-                        <th class="table_customers">Room Size</th>
-                        <th class="table_customers">Room Type</th>
-                        <th class="table_customers">Number Room</th>
-                        <th class="table_customers">Room Availability</th>
-                        <th class="table_customers">Room Floor</th>
-                        <th class="table_customers">Flat Rate per Night</th>
+                        <th class="table_customers">Date Reservation Starts</th>
+                        <th class="table_customers">Date Reservation Ends</th>
+                        <th class="table_customers">Total Nights Cost</th>
+                        <th class="table_customers">Pending Payment</th>
                     </tr>
                     <tbody>
                         <tr>
                             <td class="table_customers"><input name="customer_id" type="checkbox"></td>
                             <td class="table_customers">1</td>
-                            <td class="table_customers">2</td>
-                            <td class="table_customers">Sea View</td>
-                            <td class="table_customers">12</td>
-                            <td class="table_customers">0</td>
                             <td class="table_customers">1</td>
-                            <td class="table_customers">500</td>
+                            <td class="table_customers">2</td>
+                            <td class="table_customers">2022-12-10</td>
+                            <td class="table_customers">2022-12-27</td>
+                            <td class="table_customers">8000</td>
+                            <td class="table_customers">1</td>
                         </tr>
                         <tr>
                             <td class="table_customers"><input name="customer_id" type="checkbox"></td>
                             <td class="table_customers">2</td>
-                            <td class="table_customers">4</td>
-                            <td class="table_customers">Garden View</td>
-                            <td class="table_customers">10</td>
-                            <td class="table_customers">0</td>
+                            <td class="table_customers">2</td>
                             <td class="table_customers">1</td>
-                            <td class="table_customers">700</td>
+                            <td class="table_customers">2023-01-04</td>
+                            <td class="table_customers">2023-01-09</td>
+                            <td class="table_customers">3500</td>
+                            <td class="table_customers">1</td>
                         </tr>
                         <tr>
                             <td class="table_customers"><input name="customer_id" type="checkbox"></td>
                             <td class="table_customers">3</td>
-                            <td class="table_customers">3</td>
-                            <td class="table_customers">Garden View</td>
                             <td class="table_customers">5</td>
+                            <td class="table_customers">4</td>
+                            <td class="table_customers">2023-01-02</td>
+                            <td class="table_customers">2023-01-22</td>
+                            <td class="table_customers">20000</td>
                             <td class="table_customers">1</td>
-                            <td class="table_customers">1</td>
-                            <td class="table_customers">350</td>
                         </tr>
                         <tr>
                             <td class="table_customers"><input name="customer_id" type="checkbox"></td>
                             <td class="table_customers">4</td>
                             <td class="table_customers">4</td>
-                            <td class="table_customers">Sea View</td>
-                            <td class="table_customers">14</td>
-                            <td class="table_customers">0</td>
-                            <td class="table_customers">2</td>
-                            <td class="table_customers">1000</td>
-                        </tr>
-                        <tr>
-                            <td class="table_customers"><input name="customer_id" type="checkbox"></td>
-                            <td class="table_customers">5</td>
-                            <td class="table_customers">3</td>
-                            <td class="table_customers">Street View</td>
-                            <td class="table_customers">22</td>
-                            <td class="table_customers">0</td>
                             <td class="table_customers">1</td>
-                            <td class="table_customers">400</td>
+                            <td class="table_customers">2023-02-22</td>
+                            <td class="table_customers">2023-02-28</td>
+                            <td class="table_customers">3000</td>
+                            <td class="table_customers">0</td>
                         </tr>
                     </tbody>
                 </thead>
             </table>
             <br>
-            <button id="add_new_customer">Add Room</button>
-            <button id="delete_customer">Delete Room</button>
-            <button id="update_customer">Update Room</button>
+            <button id="add_new_customer">Add Reservation</button>
+            <button id="delete_customer">Delete Reservation</button>
+            <button id="update_customer">Update Reservation</button>
         </div>
         <br>
         <div id="add_customer" style="display: none">
             <form id="input_customer" style="text-align: left;">
                 <div class="row">
-                <label for="room_size">Room Size:</label>
+                <label for="room_size">Customer ID:</label>
                 <input type="text" id="room_size" name="room_size">
                 </div>
                 <br>
                 <div class="row">
-                    <label for="room_type">Room Type:</label>
+                    <label for="room_type">Room ID:</label>
                     <input type="text" id="room_type" name="room_type">
                 </div>
                 <br>
                 <div class="row">
-                    <label for="address">Number Room:</label>
-                    <input type="text" id="address" name="address">
+                    <label for="address">Date Reservation Starts:</label>
+                    <input type="date" id="address" name="address">
                 </div>
                 <br>
                 <div class="row">
-                    <label for="country">Room Availability:</label>
-                    <input type="text" id="country" name="country">
+                    <label for="country">Date Reservation Ends:</label>
+                    <input type="date" id="country" name="country">
                 </div>
                 <br>
                 <div class="row">
-                    <label for="zip_code">Room Floor:</label>
-                    <input type="text" id="zip_code" name="zip_code">
+                    <label for="zip_code">Total Nights Cost:</label>
+                    <input type="number" id="zip_code" name="zip_code">
                 </div>
                 <br>
                 <div class="row">
-                    <label for="phone">Flat Rate per Night:</label>
-                    <input type="text" id="phone" name="phone">
+                    <label for="phone">Pending Payment (Check for yes):</label>
+                    <input type="checkbox" id="phone" name="phone">
                 </div>
                 <br>
                 <input type="submit" value="Submit">

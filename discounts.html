@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Group 29 - Palm Tree Resort Spa Database</title>
+        <link text="text/css" rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <h1 style="text-align: center;">Palm Tree Resort Span</h1>
+        <br>
+        <div class="group_links">
+            <a href="./index.html" class="page_link">Home</a>
+            <a href="./customers.html" class="page_link">Customers</a>
+            <a href="./rooms.html" class="page_link">Rooms</a>
+            <a href="./reservations.html" class="page_link">Reservations</a>
+            <a href="./discounts.html" class="page_link">Discounts</a>
+        </div>
+        <br>
+        <div>
+            <table class="table_customers>
+                <thead>
+                    <tr class="table_customers">
+                        <th class="table_customers">Select</th>
+                        <th class="table_customers">Discount ID</th>
+                        <th class="table_customers">Discount Rate</th>
+                        <th class="table_customers">Combined with Other Discounts</th>
+                        <th class="table_customers">Active</th>
+                    </tr>
+                    <tbody>
+                        <tr>
+                            <td class="table_customers"><input name="customer_id" type="checkbox"></td>
+                            <td class="table_customers">1</td>
+                            <td class="table_customers">0.25</td>
+                            <td class="table_customers">1</td>
+                            <td class="table_customers">1</td>
+                        </tr>
+                        <tr>
+                            <td class="table_customers"><input name="customer_id" type="checkbox"></td>
+                            <td class="table_customers">2</td>
+                            <td class="table_customers">0.15</td>
+                            <td class="table_customers">1</td>
+                            <td class="table_customers">0</td>
+                        </tr>
+                        <tr>
+                            <td class="table_customers"><input name="customer_id" type="checkbox"></td>
+                            <td class="table_customers">3</td>
+                            <td class="table_customers">0.50</td>
+                            <td class="table_customers">0</td>
+                            <td class="table_customers">0</td>
+                        </tr>
+                        <tr>
+                            <td class="table_customers"><input name="customer_id" type="checkbox"></td>
+                            <td class="table_customers">4</td>
+                            <td class="table_customers">0.20</td>
+                            <td class="table_customers">1</td>
+                            <td class="table_customers">0</td>
+                        </tr>
+                        <tr>
+                            <td class="table_customers"><input name="customer_id" type="checkbox"></td>
+                            <td class="table_customers">5</td>
+                            <td class="table_customers">0.10</td>
+                            <td class="table_customers">1</td>
+                            <td class="table_customers">1</td>
+                        </tr>
+                    </tbody>
+                </thead>
+            </table>
+            <br>
+            <button id="add_new_customer">Add Discount</button>
+            <button id="delete_customer">Delete Discount</button>
+            <button id="update_customer">Update Discount</button>
+        </div>
+        <br>
+        <div id="add_customer" style="display: none">
+            <form id="input_customer" style="text-align: left;">
+                <div class="row">
+                <label for="room_size">Discount Rate (Add as number for percentage):</label>
+                <input type="number" id="room_size" name="room_size">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="room_type">It can be combined with other discounts (select for yes):</label>
+                    <input type="checkbox" id="room_type" name="room_type">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="address">Active (select for yes):</label>
+                    <input type="checkbox" id="address" name="address">
+                </div>
+                <br>
+                <input type="submit" value="Submit">
+                <input type="button" value="Cancel">
+            </form>
+        </div>
+        <br>
+        <script>
+            document.getElementById('add_new_customer').addEventListener('click', ()=>{
+                let add_form = document.getElementById('add_customer');
+                if (add_form.style.display === 'none') {
+                    add_form.style.display = 'block';
+                } else{
+                    add_form.style.display = 'none';
+                }
+            })
+            
+        </script>
+    </body>
+</html>
