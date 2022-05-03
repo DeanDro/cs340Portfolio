@@ -30,7 +30,6 @@
                         <th class="table_customers">Date Reservation Ends</th>
                         <th class="table_customers">Total Nights Cost</th>
                         <th class="table_customers">Pending Payment</th>
-                        <th class="table_customers">Discount ID</th>
                     </tr>
                     <tbody>
                         <tr>
@@ -43,7 +42,6 @@
                             <td class="table_customers">2022-12-27</td>
                             <td class="table_customers">8000</td>
                             <td class="table_customers">1</td>
-                            <td class="table_customers">2</td>
                         </tr>
                         <tr>
                             <td class="table_customers"><a href="#" onclick="edit_function()">Edit</a></td>
@@ -55,7 +53,6 @@
                             <td class="table_customers">2023-01-09</td>
                             <td class="table_customers">3500</td>
                             <td class="table_customers">1</td>
-                            <td class="table_customers">4</td>
                         </tr>
                         <tr>
                             <td class="table_customers"><a href="#" onclick="edit_function()">Edit</a></td>
@@ -66,7 +63,6 @@
                             <td class="table_customers">2023-01-02</td>
                             <td class="table_customers">2023-01-22</td>
                             <td class="table_customers">20000</td>
-                            <td class="table_customers">1</td>
                             <td class="table_customers">1</td>
                         </tr>
                         <tr>
@@ -79,7 +75,6 @@
                             <td class="table_customers">2023-02-28</td>
                             <td class="table_customers">3000</td>
                             <td class="table_customers">0</td>
-                            <td class="table_customers">3</td>
                         </tr>
                     </tbody>
                 </thead>
@@ -118,14 +113,6 @@
                 <div class="row">
                     <label for="pending_payment">Pending Payment:</label>
                     <select id="pending_payment" name="pending_payment" size="1">
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
-                    </select>
-                </div>
-                <br>
-                <div class="row">
-                    <label for="discount_id">Discount ID:</label>
-                    <select id="discount_id" name="discount_id" size="1">
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
@@ -171,14 +158,6 @@
                     </select>
                 </div>
                 <br>
-                <div class="row">
-                    <label for="discount_id">Discount ID:</label>
-                    <select id="discount_id" name="discount_id" size="1">
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
-                    </select>
-                </div>
-                <br>
                 <input type="submit" value="Submit">
                 <input type="button" value="Cancel" id="Cancel_update">
             </form>
@@ -194,8 +173,22 @@
                 </div>
                 <br>
                 <div class="row">
-                    <label for="room_number">Room Number:</label>
-                    <input type="text" id="first_name" name="first_name">
+                    <label for="room_number">Room ID:</label>
+                    <select id="room_number" name="room_number" size="1">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="2">4</option>
+                    </select>
+                </div>
+                <br>
+                <div class="row">
+                    <label for="customer_ID">Customer ID:</label>
+                    <select id="customer_ID" name="customer_ID" size="1">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="2">4</option>
+                        <option value="2">5</option>
+                    </select>
                 </div>
                 <br>
                 <input type="submit" value="Submit" id="sub">
