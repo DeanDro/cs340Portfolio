@@ -17,88 +17,94 @@
             <a href="./discounts_reservations.html" class="page_link">| Discounts-Reservations |</a>
         </div>
         <br>
-        <div>
-            <h3>Discounts - Reservations</h3>
+        <h3>Credit Cards</h3>
+        <div id="table_segment" style="align-items: center;">
             <table class="table_customers">
                 <thead>
                     <tr class="table_customers">
                         <th class="table_customers">Update</th>
                         <th class="table_customers">Delete</th>
-                        <th class="table_customers">Discounts/Reservations ID</th>
-                        <th class="table_customers">Reservation ID</th>
-                        <th class="table_customers">Check in Date</th>
-                        <th class="table_customers">Check out Date</th>
-                        <th class="table_customers">Total Cost</th>
-                        <th class="table_customers">Discount ID</th>
-                        <th class="table_customers">Percent Discount</th>
-                        <th class="table_customers">Active Discount</th>
+                        <th class="table_customers">Credit Card ID</th>
+                        <th class="table_customers">Customer ID</th>
+                        <th class="table_customers">Customer First Name</th>
+                        <th class="table_customers">Customer Last Name</th>
+                        <th class="table_customers">Credit Card Number</th>
+                        <th class="table_customers">Credit Card Security Number</th>
                     </tr>
                     <tbody>
                         <tr>
                             <td class="table_customers"><a href="#" onclick="edit_function()">Edit</a></td>
                             <td class="table_customers"><a href="#" onclick="delete_function()">Delete</a></td>
-                            <td class="table_customers">2</td>
                             <td class="table_customers">1</td>
-                            <th class="table_customers">2022-12-10</th>
-                            <th class="table_customers">2022-12-27</th>
-                            <th class="table_customers">8000.00</th>
-                            <td class="table_customers">2</td>
-                            <th class="table_customers">0.15</th>
-                            <th class="table_customers">0</th>
+                            <td class="table_customers">1</td>
+                            <td class="table_customers">David</td>
+                            <td class="table_customers">Adams</td>
+                            <td class="table_customers">1112223200002213</td>
+                            <td class="table_customers">223</td>
                         </tr>
                         <tr>
                             <td class="table_customers"><a href="#" onclick="edit_function()">Edit</a></td>
                             <td class="table_customers"><a href="#" onclick="delete_function()">Delete</a></td>
-                            <td class="table_customers">4</td>
                             <td class="table_customers">2</td>
-                            <th class="table_customers">2023-01-04</th>
-                            <th class="table_customers">2023-01-09</th>
-                            <th class="table_customers">3500.00</th>
-                            <td class="table_customers">4</td>
-                            <th class="table_customers">0.20</th>
-                            <th class="table_customers">0</th>
-                        </tr>
-                        <tr>
-                            <td class="table_customers"><a href="#" onclick="edit_function()">Edit</a></td>
-                            <td class="table_customers"><a href="#" onclick="delete_function()">Delete</a></td>
-                            <td class="table_customers">1</td>
-                            <td class="table_customers">3</td>
-                            <th class="table_customers">2023-01-02</th>
-                            <th class="table_customers">2023-01-22</th>
-                            <th class="table_customers">20000.00</th>
-                            <td class="table_customers">1</td>
-                            <th class="table_customers">0.25</th>
-                            <th class="table_customers">1</th>
+                            <td class="table_customers">2</td>
+                            <td class="table_customers">Eric</td>
+                            <td class="table_customers">Smith</td>
+                            <td class="table_customers">1234122209874536</td>
+                            <td class="table_customers">222</td>
                         </tr>
                         <tr>
                             <td class="table_customers"><a href="#" onclick="edit_function()">Edit</a></td>
                             <td class="table_customers"><a href="#" onclick="delete_function()">Delete</a></td>
                             <td class="table_customers">3</td>
-                            <td class="table_customers">4</td>
-                            <th class="table_customers">2023-02-22</th>
-                            <th class="table_customers">2023-02-28</th>
-                            <th class="table_customers">3000.00</th>
                             <td class="table_customers">3</td>
-                            <th class="table_customers">0.50</th>
-                            <th class="table_customers">0</th>
+                            <td class="table_customers">Andrea</td>
+                            <td class="table_customers">Rose</td>
+                            <td class="table_customers">2162958262129999</td>
+                            <td class="table_customers">113</td>
+                        </tr>
+                        <tr>
+                            <td class="table_customers"><a href="#" onclick="edit_function()">Edit</a></td>
+                            <td class="table_customers"><a href="#" onclick="delete_function()">Delete</a></td>
+                            <td class="table_customers">4</td>
+                            <td class="table_customers">4</td>
+                            <td class="table_customers">Olivia</td>
+                            <td class="table_customers">Rodrigues</td>
+                            <td class="table_customers">3374992174632211</td>
+                            <td class="table_customers">009</td>
+                        </tr>
+                        <tr>
+                            <td class="table_customers"><a href="#" onclick="edit_function()">Edit</a></td>
+                            <td class="table_customers"><a href="#" onclick="delete_function()">Delete</a></td>
+                            <td class="table_customers">5</td>
+                            <td class="table_customers">3</td>
+                            <td class="table_customers">Harry</td>
+                            <td class="table_customers">Potter</td>
+                            <td class="table_customers">9292848422223333</td>
+                            <td class="table_customers">123</td>
                         </tr>
                     </tbody>
                 </thead>
             </table>
             <br>
-            <button id="add_new_customer">Add Discount - Reservation</button>
+            <button id="add_new_customer">Add Credit Card</button>
         </div>
         <br>
         <div id="add_customer" style="display: none">
+            <h3>Add Credit Card</h3>
             <form id="input_customer" style="text-align: left;">
                 <div class="row">
-                <label for="discount_id">Discount ID:</label>
-                <input type="text" id="discount_id" name="discount_id">
+                    <label for="Customer_ID">Customer ID:</label>
+                    <input type="text" id="Customer_ID" name="Customer_ID">
                 </div>
                 <br>
                 <div class="row">
-                    <label for="reservation_id">Reservation ID:</label>
-                    <input type="text" id="reservation_id" name="reservation_id">
+                    <label for="credit_number">Credit Card Number:</label>
+                    <input type="text" id="credit_number" name="credit_number">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="security_number">Credit Card Security Number:</label>
+                    <input type="text" id="security_number" name="security_number">
                 </div>
                 <br>
                 <input type="submit" value="Submit">
@@ -107,15 +113,21 @@
         </div>
         <br>
         <div id="edit_segm" style="display: none">
+            <h3>Edit Credit Card</h3>
             <form id="input_customer" style="text-align: left;">
                 <div class="row">
-                <label for="discount_id">Discount ID:</label>
-                <input type="text" id="discount_id" name="discount_id">
+                    <label for="Customer_ID">Customer ID:</label>
+                    <input type="text" id="Customer_ID" name="Customer_ID">
                 </div>
                 <br>
                 <div class="row">
-                    <label for="reservation_id">Reservation ID:</label>
-                    <input type="text" id="reservation_id" name="reservation_id">
+                    <label for="credit_number">Credit Card Number:</label>
+                    <input type="text" id="credit_number" name="credit_number">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="security_number">Credit Card Security Number:</label>
+                    <input type="text" id="security_number" name="security_number">
                 </div>
                 <br>
                 <input type="submit" value="Submit">
@@ -124,12 +136,12 @@
         </div>
         <br>
         <div id="delete_segm" style="display: none;">
-            <h3>Delete Room</h3>
-            <p style="font-weight: bold; color: red; font-size: 20px;">Are you sure you want to delete this Discount - Reservation?</p>
+            <h3>Delete Credit Card</h3>
+            <p style="font-weight: bold; color: red; font-size: 20px;">Are you sure you want to delete this credit card?</p>
             <form id="delete_form" style="text-align: left;">
                 <div class="row">
-                    <label for="discount_reservation_id">Discount - Reservation ID:</label>
-                    <input type="number" id="Reservation_ID" name="Reservation_ID">
+                    <label for="credit_card_id">Credit Card ID:</label>
+                    <input type="number" id="credit_card_id" name="credit_card_id">
                 </div>
                 <br>
                 <input type="submit" value="Submit" id="sub">
@@ -169,7 +181,6 @@
                 let edit_form = document.getElementById('edit_segm');
                 edit_form.style.display = 'block';
             }
-            
         </script>
     </body>
 </html>
