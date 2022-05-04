@@ -25,11 +25,15 @@
                         <th class="table_customers">Delete</th>
                         <th class="table_customers">Reservation ID</th>
                         <th class="table_customers">Customer ID</th>
+                        <th class="table_customers">Customer First Name</th>
+                        <th class="table_customers">Customer Last Name</th>
                         <th class="table_customers">Room ID</th>
+                        <th class="table_customers">Room Number</th>
                         <th class="table_customers">Date Reservation Starts</th>
                         <th class="table_customers">Date Reservation Ends</th>
                         <th class="table_customers">Total Nights Cost</th>
                         <th class="table_customers">Pending Payment</th>
+                        <th class="table_customers">Special Request</th>
                     </tr>
                     <tbody>
                         <tr>
@@ -37,44 +41,60 @@
                             <td class="table_customers"><a href="#" onclick="delete_function()">Delete</a></td>
                             <td class="table_customers">1</td>
                             <td class="table_customers">1</td>
+                            <td class="table_customers">David</td>
+                            <td class="table_customers">Adams</td>
                             <td class="table_customers">2</td>
+                            <td class="table_customers">10</td>
                             <td class="table_customers">2022-12-10</td>
                             <td class="table_customers">2022-12-27</td>
                             <td class="table_customers">8000</td>
                             <td class="table_customers">1</td>
+                            <td class="table_customers">None</td>
                         </tr>
                         <tr>
                             <td class="table_customers"><a href="#" onclick="edit_function()">Edit</a></td>
                             <td class="table_customers"><a href="#" onclick="delete_function()">Delete</a></td>
                             <td class="table_customers">2</td>
                             <td class="table_customers">2</td>
+                            <td class="table_customers">Eric</td>
+                            <td class="table_customers">Smith</td>
                             <td class="table_customers">1</td>
+                            <td class="table_customers">12</td>
                             <td class="table_customers">2023-01-04</td>
                             <td class="table_customers">2023-01-09</td>
                             <td class="table_customers">3500</td>
                             <td class="table_customers">1</td>
+                            <td class="table_customers">Peanut Allergy</td>
                         </tr>
                         <tr>
                             <td class="table_customers"><a href="#" onclick="edit_function()">Edit</a></td>
                             <td class="table_customers"><a href="#" onclick="delete_function()">Delete</a></td>
                             <td class="table_customers">3</td>
                             <td class="table_customers">5</td>
+                            <td class="table_customers">Harry</td>
+                            <td class="table_customers">Potter</td>
                             <td class="table_customers">4</td>
+                            <td class="table_customers">14</td>
                             <td class="table_customers">2023-01-02</td>
                             <td class="table_customers">2023-01-22</td>
                             <td class="table_customers">20000</td>
                             <td class="table_customers">1</td>
+                            <td class="table_customers">None</td>
                         </tr>
                         <tr>
                             <td class="table_customers"><a href="#" onclick="edit_function()">Edit</a></td>
                             <td class="table_customers"><a href="#" onclick="delete_function()">Delete</a></td>
                             <td class="table_customers">4</td>
                             <td class="table_customers">4</td>
+                            <td class="table_customers">Olivia</td>
+                            <td class="table_customers">Rodrigues</td>
                             <td class="table_customers">1</td>
+                            <td class="table_customers">12</td>
                             <td class="table_customers">2023-02-22</td>
                             <td class="table_customers">2023-02-28</td>
                             <td class="table_customers">3000</td>
                             <td class="table_customers">0</td>
+                            <td class="table_customers">Cat Allergy</td>
                         </tr>
                     </tbody>
                 </thead>
@@ -169,7 +189,11 @@
             <form id="delete_form" style="text-align: left;">
                 <div class="row">
                     <label for="Reservation_ID">Reservation ID:</label>
-                    <input type="number" id="Reservation_ID" name="Reservation_ID">
+                    <select id="Reservation_ID" name="Reservation_ID" size="1">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
                 </div>
                 <br>
                 <div class="row">
@@ -177,7 +201,8 @@
                     <select id="room_number" name="room_number" size="1">
                         <option value="1">1</option>
                         <option value="2">2</option>
-                        <option value="2">4</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
                     </select>
                 </div>
                 <br>
