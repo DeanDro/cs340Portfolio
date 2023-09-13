@@ -1,0 +1,126 @@
+{% extends 'main.j2' %}
+
+{% block body %}
+<br>
+<div class="group_links">
+    <a href="{{url_for('home')}}" class="page_link">| Home |</a>
+    <a href="{{url_for('customers')}}" class="page_link">| Customers |</a>
+    <a href="{{url_for('credit_cards')}}" class="page_link">| Credit Cards |</a>
+    <a href="{{url_for('rooms')}}" class="page_link">| Rooms |</a>
+    <a href="{{url_for('reservations')}}" class="page_link">| Reservations |</a>
+    <a href="{{url_for('discounts')}}" class="page_link">| Discounts |</a>
+    <a href="{{url_for('discounts_has_reservations')}}" class="page_link">| Discounts-Reservations |</a>
+</div>
+<div>
+    <h3>Discounts - Reservations</h3>
+    <table class="table_customers">
+        <thead>
+            <tr class="table_customers">
+                <th class="table_customers">Update</th>
+                <th class="table_customers">Delete</th>
+                <th class="table_customers">Discounts/Reservations ID</th>
+                <th class="table_customers">Reservation ID</th>
+                <th class="table_customers">Check in Date</th>
+                <th class="table_customers">Check out Date</th>
+                <th class="table_customers">Total Cost</th>
+                <th class="table_customers">Discount ID</th>
+                <th class="table_customers">Percent Discount</th>
+                <th class="table_customers">Active Discount</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for info in data %}
+                <tr>
+                    <td class="table_customers"><a href="edit_discounts_reservations/{{info.Discounts_has_Reservations_ID}}">Edit</a></td>
+                    <td class="table_customers"><button id="delete_customer" onClick="delete_disc_reserv({{info.Discounts_has_Reservations_ID}})">Delete</button></td></td>
+                    <td class="table_customers">{{info.Discounts_has_Reservations_ID}}</td>
+                    <td class="table_customers">{{info.Reservation_ID}}</td>
+                    <td class="table_customers">{{info.Date_Reservation_Starts}}</td>
+                    <td class="table_customers">{{info.Date_Reservation_Ends}}</td>
+                    <td class="table_customers">{{info.Total_Nights_Cost}}</td>
+                    <td class="table_customers">{{info.Discount_ID}}</td>
+                    <td class="table_customers">{{info.Discount_Rate}}</td>
+                    {% if info.Active == 1 %}
+                        <td class="table_customers"><p style="color: green;">Yes</p></td>
+                    {% else %}
+                        <td class"table_customers"><p style="color: red;">No</p></td>
+                    {% endif %}
+                </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <button id="add_new_discount_reservation">Add Discount - Reservation</button>
+</div>
+<br>
+<div id="add_discount_reservation" style="display: none">
+    <form id="input_disc_reserv" method="post" action="/discounts_has_reservations" tyle="text-align: left;">
+        <div class="row">
+            <label for="discount_id">Discount ID:</label>
+            <select name="discount_id" id="discount_id">
+            {% for discount in discounts %}
+                <option value="{{discount.Discount_ID}}">{{discount.Discount_ID}}</option>
+            {% endfor %}
+            </select>
+        </div>
+        <br>
+        <div class="row">
+            <label for="reservation_id">Reservation ID:</label>
+            <select name="reservation_id" id="reservation_id">
+            {% for reservation in reservations %}
+                <option value="{{reservation.Reservation_ID}}}">{{reservation.Reservation_ID}}</option>
+            {% endfor %}
+            </select>
+        </div>
+        <br>
+        <input type="submit" value="Submit" name="input_disc_reserv">
+        <input type="button" value="Cancel" id="cancel">
+    </form>
+</div>
+<br>
+<br>
+<div id="delete_segm" style="display: none;">
+    <h3>Delete Discount - Reservation</h3>
+    <p style="font-weight: bold; color: red; font-size: 20px;">Are you sure you want to delete this Discount - Reservation?</p>
+    <form id="delete_form" method="post" action="/delete_discount_reservation" style="text-align: left;">
+        <div class="row">
+            <label for="discount_reservation_id">Discount - Reservation ID:</label>
+            <input type="number" id="discount_reservation_id" name="discount_reservation_id" readonly>
+        </div>
+        <br>
+        <input type="submit" value="Submit" id="sub">
+        <input type="button" value="Cancel" id="cancel_delete">
+    </form>
+</div>
+{% endblock body %}
+
+{% block script %}
+<script>
+    document.getElementById('add_new_discount_reservation').addEventListener('click', ()=>{
+        let add_form = document.getElementById('add_discount_reservation');
+        if (add_form.style.display === 'none') {
+            add_form.style.display = 'block';
+        } else{
+                add_form.style.display = 'none';
+        }
+    })
+
+    document.getElementById('cancel').addEventListener('click',()=>{
+        let add_form = document.getElementById('add_discount_reservation');
+        add_form.style.display = 'none';
+    });
+
+    function delete_disc_reserv(id){
+        let delete_form = document.getElementById('delete_segm');
+        delete_form.style.display = 'block';
+
+        let id_disc_reserv = document.getElementById('discount_reservation_id');
+        id_disc_reserv.value = id;
+
+        document.getElementById('delete_form').action = '/delete_discount_reservation/'+id.toString();
+    }
+
+
+</script>
+
+{% endblock script %}

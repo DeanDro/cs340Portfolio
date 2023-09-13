@@ -1,0 +1,47 @@
+{% extends 'main.j2' %}
+
+{% block body %}
+<br>
+<h3>Edit Discounts - Reservations</h3>
+{% for info in data %}
+    <form id="edit_form" action="/edit_discounts_reservations/{{info.Discounts_has_Reservations_ID}}" method="POST" style="text-align: left;">
+        <div class="row">
+            <label for="discount_reservation_id">Discount - Reservation ID:</label>
+            <input type="number" id="discount_reservation_id" name="discount_reservation_id" value="{{info.Discounts_has_Reservations_ID}}" readonly>
+        </div>
+        <br>
+        <div class="row">
+            <label for="Discount_id">Discount ID:</label>
+            <select name="Discount_id" id="Discount_id">
+            {% for discount in discounts %}
+                {% if discount.Discount_ID == info.Discount_ID %}
+                    <option value="{{discount.Discount_ID}}" selected>{{discount.Discount_ID}}</option>
+                {% else %}
+                    <option value="{{discount.Discount_ID}}">{{discount.Discount_ID}}</option>
+                {% endif %}
+            {% endfor %}
+            </select>
+        </div>
+        <br>
+        <div class="row">
+            <label for="Reservation_id">Reservation ID:</label>
+            <select name="Reservation_id" id="Reservation_id">
+            {% for reservation in reservations %}
+                {% if reservation.Reservation_ID == info.Reservation_ID %}
+                    <option value="{{reservation.Reservation_ID}}" selected>{{reservation.Reservation_ID}}</option>
+                {% else %}
+                    <option value="{{reservation.Reservation_ID}}">{{reservation.Reservation_ID}}</option>
+                {% endif %}
+            {% endfor %}
+            </select>
+        </div>
+        <br>
+        <input type="Submit" value="Submit" id="edit_form" name="edit_form">
+        <a href="/discounts_has_reservations"><input type="button" value="Cancel"></a>
+    </form>
+    {% endfor %}
+</div>
+<br>
+
+
+{% endblock body %}

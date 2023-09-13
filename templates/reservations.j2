@@ -1,0 +1,165 @@
+{% extends 'main.j2' %}
+
+{% block body %}
+<br>
+<div class="group_links">
+    <a href="{{url_for('home')}}" class="page_link">| Home |</a>
+    <a href="{{url_for('customers')}}" class="page_link">| Customers |</a>
+    <a href="{{url_for('credit_cards')}}" class="page_link">| Credit Cards |</a>
+    <a href="{{url_for('rooms')}}" class="page_link">| Rooms |</a>
+    <a href="{{url_for('reservations')}}" class="page_link">| Reservations |</a>
+    <a href="{{url_for('discounts')}}" class="page_link">| Discounts |</a>
+    <a href="{{url_for('discounts_has_reservations')}}" class="page_link">| Discounts-Reservations |</a>
+</div>
+<br>
+<br>
+<h3>Reservations</h3>
+<div style="text-align: center;">
+    <table class="table_customers">
+        <thead>
+            <tr class="table_customers">
+                <th class="table_customers">Update</th>
+                <th class="table_customers">Delete</th>
+                <th class="table_customers">Reservation ID</th>
+                <th class="table_customers">Customer ID</th>
+                <th class="table_customers">Customer First Name</th>
+                <th class="table_customers">Customer Last Name</th>
+                <th class="table_customers">Room ID</th>
+                <th class="table_customers">Room Number</th>
+                <th class="table_customers">Floor</th>
+                <th class="table_customers">Date Reservation Starts</th>
+                <th class="table_customers">Date Reservation Ends</th>
+                <th class="table_customers">Total Cost of Nights</th>
+                <th class="table_customers">Pending Payment</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reservation in reservations %}
+            <tr>
+                <td class="table_customers"><a href="edit_reservation/{{reservation.Reservation_ID}}">Edit</a></td>
+                <td class="table_customers"><button id="delete_reservation" onClick="delete_reservation({{reservation.Reservation_ID}})">Delete</button></td>
+                <td class="table_customers">{{reservation.Reservation_ID}}</td>
+                <td class="table_customers">{{reservation.Customer_ID}}</td>
+                <td class="table_customers">{{reservation.Customer_First_Name}}</td>
+                <td class="table_customers">{{reservation.Customer_Last_Name}}</td>
+                <td class="table_customers">{{reservation.Room_ID}}</td>
+                <td class="table_customers">{{reservation.Number_Room}}</td>
+                <td class="table_customers">{{reservation.Room_Floor}}</td>
+                <td class="table_customers">{{reservation.Date_Reservation_Starts}}</td>
+                <td class="table_customers">{{reservation.Date_Reservation_Ends}}</td>
+                <td class="table_customers">{{reservation.Total_Nights_Cost}}</td>
+                {% if reservation.Pending_Payment == 1 %}
+                <td class="table_customers">Yes</td>
+                {% else %}
+                <td class="table_customers">No</td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <button id="add_new_reservation">Add Reservation</button>
+</div>
+<br>
+<div id="add_reservation" style="display: none">
+    <form id="input_reservation" method="post" action="/reservations" style="text-align: left;">
+        <div class="row">
+            <label for="customer_id">Customer ID:</label>
+            <select name="customer_id" id="customer_id">
+                {% for customer in customers %}
+                <option value="{{customer.Customer_ID}}">{{customer.Customer_ID}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <br>
+        <div class="row">
+            <label for="room_id">Room ID:</label>
+            <select name="room_id" id="room_id">
+                {% for room in rooms %}
+                <option value="{{room.Room_ID}}">{{room.Room_ID}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <br>
+        <div class="row">
+            <label for="reservation_start">Date Reservation Starts:</label>
+            <input type="text" id="reservation_start" name="reservation_start" placeholder="YYYY-MM-DD">
+        </div>
+        <br>
+        <div class="row">
+            <label for="reservation_ends">Date Reservation Ends:</label>
+            <input type="text" id="reservation_ends" name="reservation_ends" placeholder="YYYY-MM-DD">
+        </div>
+        <br>
+        <div class="row">
+            <label for="total_cost">Total Cost:</label>
+            <input type="number" id="total_cost" name="total_cost" step="any">
+        </div>
+        <br>
+        <div class="row">
+            <label for="pending_payment">Pending Customer Payment:</label>
+            <select name="pending_payment" id="pending_payment">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+        <br>
+        <input type="submit" value="Submit" name="input_reservation">
+        <input type="button" value="Cancel" id="cancel">
+    </form>
+</div>
+<br>
+<div id="delete_segm" style="display: none;">
+    <h3>Delete Reservation</h3>
+    <p style="font-weight: bold; color: red; font-size: 20px;">Are you sure you want to delete this Reservation?</p>
+    <form id="delete_form" method="post" action="/delete_reservation" style="text-align: left;">
+        <div class="row">
+            <label for="room_id_reservation">Reservation ID:</label>
+            <input type="number" id="reservation_id_delete" name="reservation_id_delete" readonly>
+        </div>
+        <br>
+        <input type="submit" value="Submit" id="sub">
+        <input type="button" value="Cancel" id="cancel_delete">
+    </form>
+</div>
+{% endblock body %}
+
+{% block script %}
+<script>
+    document.getElementById('add_new_reservation').addEventListener('click', ()=>{
+        let add_form = document.getElementById('add_reservation');
+        if (add_form.style.display === 'none') {
+            add_form.style.display = 'block';
+        } else{
+                add_form.style.display = 'none';
+        }
+    })
+
+    document.getElementById('cancel').addEventListener('click',()=>{
+        let add_form = document.getElementById('add_reservation');
+        add_form.style.display = 'none';
+    });
+
+    document.getElementById('Cancel_update').addEventListener('click', ()=>{
+        let edit_form = document.getElementById('edit_segm');
+        edit_form.style.display = 'none';
+    });
+
+    function delete_reservation(id){
+        let delete_form = document.getElementById('delete_segm');
+        delete_form.style.display = 'block';
+
+        let reservation_id = document.getElementById('reservation_id_delete');
+        reservation_id.value = id;
+
+        document.getElementById('delete_form').action = '/delete_reservation/'+id.toString();
+    }
+
+    document.getElementById('cancel_delete').addEventListener('click', ()=>{
+        let edit_form = document.getElementById('delete_segm');
+        edit_form.style.display = 'none';
+    });
+
+
+</script>
+{% endblock script %}

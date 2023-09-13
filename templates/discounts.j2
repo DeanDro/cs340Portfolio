@@ -1,0 +1,135 @@
+{% extends 'main.j2' %}
+
+{% block body %}
+<br>
+<div class="group_links">
+    <a href="{{url_for('home')}}" class="page_link">| Home |</a>
+    <a href="{{url_for('customers')}}" class="page_link">| Customers |</a>
+    <a href="{{url_for('credit_cards')}}" class="page_link">| Credit Cards |</a>
+    <a href="{{url_for('rooms')}}" class="page_link">| Rooms |</a>
+    <a href="{{url_for('reservations')}}" class="page_link">| Reservations |</a>
+    <a href="{{url_for('discounts')}}" class="page_link">| Discounts |</a>
+    <a href="{{url_for('discounts_has_reservations')}}" class="page_link">| Discounts-Reservations |</a>
+</div>
+<br>
+<br>
+<h3>Discounts</h3>
+<div style="text-align: center;">
+    <table class="table_customers">
+        <thead>
+            <tr class="table_customers">
+                <th class="table_customers">Update</th>
+                <th class="table_customers">Delete</th>
+                <th class="table_customers">Discount ID</th>
+                <th class="table_customers">Discount Rate</th>
+                <th class="table_customers">Combined With Other Discounts ID</th>
+                <th class="table_customers">Active Discount</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for discount in discounts %}
+            <tr>
+                <td class="table_customers"><a href="edit_discount/{{discount.Discount_ID}}">Edit</a></td>
+                <td class="table_customers"><button id="delete_discount" onClick="delete_discounts({{discount.Discount_ID}})">Delete</button></td>
+                <td class="table_customers">{{discount.Discount_ID}}</td>
+                <td class="table_customers">{{discount.Discount_Rate}}</td>
+                {% if discount.Combined_With_Other_Discounts == 1 %}
+                    <td class="table_customers"><p style="color: green;">Yes</p></td>
+                {% else %}
+                    <td class="table_customers"><p style="color: red;">No</p></td>
+                {% endif %}
+                {% if discount.Active == 1 %}
+                    <td class="table_customers"><p style="color: green;">Yes</p></td>
+                {% else %}
+                    <td class="table_customers"><p style="color: red;">No</p></td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <button id="add_new_discount">Add Discount</button>
+</div>
+<br>
+<div id="add_discount" style="display: none">
+    <form id="input_discount" method="post" action="/discounts" style="text-align: left;">
+        <div class="row">
+            <label for="discount_rate">Discount Rate:</label>
+            <input type="number" name="discount_rate" id="discount_rate" placeholder="Add rate as decimal" min="0" max="1" step="any">
+        </div>
+        <br>
+        <div class="row">
+            <label for="combined_with_other">Combined With Other Discounts:</label>
+            <select name="combined_with_other" id="combined_with_other">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+        <br>
+        <div class="row">
+            <label for="active_discount">Active Discount:</label>
+            <select name="active_discount" id="active_discount">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+        <br>
+        <input type="submit" value="Submit" name="input_discount">
+        <input type="button" value="Cancel" id="cancel">
+    </form>
+</div>
+<br>
+<div id="delete_segm" style="display: none;">
+    <h3>Delete Discount</h3>
+    <p style="font-weight: bold; color: red; font-size: 20px;">Are you sure you want to delete this Reservation?</p>
+    <form id="delete_form" method="post" action="/delete_discount" style="text-align: left;">
+        <div class="row">
+            <label for="discount_id_delete">Discount ID:</label>
+            <input type="number" id="discount_id_delete" name="discount_id_delete" readonly>
+        </div>
+        <br>
+        <input type="submit" value="Submit" id="sub">
+        <input type="button" value="Cancel" id="cancel_delete">
+    </form>
+</div>
+{% endblock body %}
+
+{% block script %}
+<script>
+    document.getElementById('add_new_discount').addEventListener('click', ()=>{
+        let add_form = document.getElementById('add_discount');
+        if (add_form.style.display === 'none') {
+            add_form.style.display = 'block';
+        } else{
+                add_form.style.display = 'none';
+        }
+    })
+
+    document.getElementById('cancel').addEventListener('click',()=>{
+        let add_form = document.getElementById('add_discount');
+        add_form.style.display = 'none';
+    });
+
+    document.getElementById('Cancel_update').addEventListener('click', ()=>{
+        let edit_form = document.getElementById('edit_segm');
+        edit_form.style.display = 'none';
+    });
+
+    function delete_discounts(id){
+        let delete_form = document.getElementById('delete_segm');
+        delete_form.style.display = 'block';
+
+        let discount_id = document.getElementById('discount_id_delete');
+        discount_id.value = id;
+
+        document.getElementById('delete_form').action = '/delete_discount/'+id.toString();
+    }
+
+    document.getElementById('cancel_delete').addEventListener('click', ()=>{
+        let edit_form = document.getElementById('delete_segm');
+        edit_form.style.display = 'none';
+    });
+
+
+</script>
+{% endblock script %}

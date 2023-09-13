@@ -1,0 +1,78 @@
+{% extends 'main.j2' %}
+
+{% block body %}
+<h3>Edit Customer</h3>
+    {% for info in data %}
+    <form id="editform" action="/edit_customers/{{info.Customer_ID}}" method="POST" style="text-align: left;">
+        <div class="row">
+            <label for="customer_id_edit">Customer ID:</label>
+            <input type="number" id="customer_id_edit" name="customer_id_edit" value="{{info.Customer_ID}}" readonly>
+        </div>
+        <br>
+        <div class="row">
+            <label for="customer_first_name">Customer First Name:</label>
+            <input type="text" id="customer_first_name" name="customer_first_name" value="{{info.Customer_First_Name}}">
+        </div>
+        <br>
+        <div class="row">
+            <label for="customer_last_name">Customer Last Name:</label>
+            <input type="text" id="customer_last_name" name="customer_last_name" value="{{info.Customer_Last_Name}}">
+        </div>
+        <br>
+        <div class="row">
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" value="{{info.Address}}">
+        </div>
+        <br>
+        <div class="row">
+            <label for="country">Country:</label>
+            <input type="text" id="country" name="country" value="{{info.Country}}">
+        </div>
+        <br>
+        <div class="row">
+            <label for="zip_code">Zip Code:</label>
+            <input type="number" id="zip_code" name="zip_code" value="{{info.Zip_Code}}">
+        </div>
+        <br>
+        <div class="row">
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" value="{{info.Phone}}">
+        </div>
+        <br>
+        <div class="row">
+            <label for="credit_card_id">Credit Card ID:</label>
+            <select name="credit_card_id" id="credit_card_id">
+                {% for cc_id in cc_ids %}
+                    {% if cc_id.Credit_Card_ID == info.Credit_Card_ID %}
+                        <option value="{{cc_id.Credit_Card_ID}}" selected>{{cc_id.Credit_Card_ID}}</option>
+                    {% else %}
+                        <option value="{{cc_id.Credit_Card_ID}}">{{cc_id.Credit_Card_ID}}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+
+        </div>
+        <br>
+        <div class="row">
+            <label for="total_days">Total Days Stayed:</label>
+            <input type="number" id="total_days" name="total_days" value="{{info.Total_Days_Stayed}}">
+        </div>
+        <br>
+        <div class="row">
+            <label for="total_spent">Total Spent:</label>
+            <input type="number" id="total_spent" name="total_spent" value="{{info.Total_Spent}}">
+        </div>
+        <br>
+        <div class="row">
+            <label for="special_request">Special Request:</label>
+            <input type="text" id="special_request" name="special_request" value="{{info.Special_Request}}">
+        </div>
+        <br>
+        <input type="Submit" value="Submit" id="edit_form" name="edit_form">
+        <a href="/customers"><input type="button" value="Cancel"></a>
+    </form>
+    {% endfor %}
+</div>
+<br>
+
+{% endblock body %}

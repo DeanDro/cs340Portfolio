@@ -1,0 +1,53 @@
+{% extends 'main.j2' %}
+
+{% block body %}
+<br>
+<h3>Edit Discount</h3>
+{% for info in data %}
+    <form id="edit_form" action="/edit_discount/{{info.Discount_ID}}" method="POST" style="text-align: left;">
+        <div class="row">
+            <label for="discount_id">Discount ID:</label>
+            <input type="number" id="discount_id" name="discount_id" value="{{info.Discount_ID}}" readonly>
+        </div>
+        <br>
+        <div class="row">
+            <label for="discount_rate">Discount Rate:</label>
+            <input type="number" name="discount_rate" id="discount_rate" value="{{info.Discount_Rate}}"
+            min="0" max="1" step="any">
+        </div>
+        <br>
+        <div class="row">
+            <label for="combined_with_other">Combined with other discount:</label>
+            <select name="combined_with_other" id="combined_with_other">
+            {% if info.Combined_With_Other_Discounts == 1 %}
+                <option value="1" selected>Yes</option>
+                <option value="0">No</option>
+            {% else %}
+                <option value="1">Yes</option>
+                <option value="0" selected>No</option>
+            {% endif %}
+            </select>
+        </div>
+        <br>
+        <div class="row">
+            <label for="active_discount">Active Discount:</label>
+            <select name="active_discount" id="active_discount">
+            {% if info.Active == 1 %}
+                <option value="1" selected>Yes</option>
+                <option value="0">No</option>
+            {% else %}
+                <option value="1">Yes</option>
+                <option value="0" selected>No</option>
+            {% endif %}
+            </select>
+        </div>
+        <br>
+        <input type="Submit" value="Submit" id="edit_form" name="edit_form">
+        <a href="/discounts_has_reservations"><input type="button" value="Cancel"></a>
+    </form>
+    {% endfor %}
+</div>
+<br>
+
+
+{% endblock body %}

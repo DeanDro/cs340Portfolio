@@ -1,0 +1,29 @@
+{% extends 'main.j2' %}
+
+
+{% block body %}
+<h1 style="text-align: center;">Palm Tree Resort Span</h1>
+        <br>
+<div class="group_links">
+    <a href="{{url_for('home')}}" class="page_link">| Home |</a>
+    <a href="{{url_for('customers')}}" class="page_link">| Customers |</a>
+    <a href="{{url_for('credit_cards')}}" class="page_link">| Credit Cards |</a>
+    <a href="{{url_for('rooms')}}" class="page_link">| Rooms |</a>
+    <a href="{{url_for('reservations')}}" class="page_link">| Reservations |</a>
+    <a href="{{url_for('discounts')}}" class="page_link">| Discounts |</a>
+    <a href="{{url_for('discounts_has_reservations')}}" class="page_link">| Discounts-Reservations |</a>
+</div>
+        <br>
+        <h4>Description of pages</h4>
+        <ul class="description_list" style="text-align: left;">
+            <li class="description_list">Select the Customers page to view all customers currently in database, to add, update or delete customers.</li>
+            <li class="description_list">Select Credit Cards to view information about the credit cards in record for each customer, add, update, or delete
+                a credit card.</li>
+            <li class="description_list">Select Rooms to view information about all Rooms in the database, to add, update, or delete a room.</li>
+            <li class="description_list">Select Reservations to view information about the Reservations currently in the database, to add, update or delete any Reservations.</li>
+            <li class="description_list">Select Discounts to view information about the discount information currently in the database, to add, update or delete any discount offers.</li>
+            <li class="description_list">Select Discounts - Reservations to view information about the discounts that are applied in each reservation, to add, delete or
+                updated any of the information.
+            </li>
+        </ul>
+{% endblock body %}

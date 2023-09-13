@@ -1,0 +1,29 @@
+{% extends 'main.j2' %}
+
+{% block body %}
+<h3>Edit Credit Card</h3>
+    {% for info in data %}
+    <form id="editform" action="/edit_credit_card/{{info.Credit_Card_ID}}" method="POST" style="text-align: left;">
+        <div class="row">
+            <label for="credit_card_id_edit">Credit Card ID:</label>
+            <input type="number" id="credit_card_id_edit" name="credit_card_id_edit" value="{{info.Credit_Card_ID}}" readonly>
+        </div>
+        <br>
+        <div class="row">
+            <label for="credit_number">Credit Card Number:</label>
+            <input type="text" name="credit_number" id="credit_number"value="{{info.Credit_Card_Number}}">
+        </div>
+        <br>
+        <div class="row">
+            <label for="credit_security">Credit Card Security Number:</label>
+            <input type="number" name="credit_security" id="credit_security" value="{{info.Credit_Card_Security_Number}}">
+        </div>
+        <br>
+        <input type="Submit" value="Submit" id="edit_form" name="edit_form">
+        <a href="/credit_cards"><input type="button" value="Cancel"></a>
+    </form>
+    {% endfor %}
+</div>
+<br>
+
+{% endblock body %}

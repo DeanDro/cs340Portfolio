@@ -1,0 +1,71 @@
+{% extends 'main.j2' %}
+
+{% block body %}
+<h3>Edit Reservation</h3>
+{% for info in data %}
+<form id="editform" action="/edit_reservation/{{info.Reservation_ID}}" method="POST" style="text-align: left;">
+    <div class="row">
+        <label for="reservation_id">Reservation ID:</label>
+        <input type="number" id="reservation_id" name="reservation_id" value="{{info.Reservation_ID}}" readonly>
+    </div>
+    <br>
+    <div class="row">
+        <label for="customer_id">Customer ID:</label>
+        <select name="customer_id" id="customer_id">
+        {% for customer in customers %}
+            {% if customer.Customer_ID == info.Customer_ID %}
+                <option value="{{customer.Customer_ID}}" selected>{{customer.Customer_ID}}</option>
+            {% else %}
+                <option value="{{customer.Customer_ID}}">{{customer.Customer_ID}}</option>
+            {% endif %}
+        {% endfor %}
+        </select>
+    </div>
+    <br>
+    <div class="row">
+        <label for="room_id">Room ID:</label>
+        <select name="room_id" id="room_id">
+        {% for room in rooms %}
+            {% if room.Room_ID == info.Room_ID %}
+                <option value="{{room.Room_ID}}" selected>{{room.Room_ID}}</option>
+            {% else %}
+                <option value="{{room.Room_ID}}">{{room.Room_ID}}</option>
+            {% endif %}
+        {% endfor %}
+        </select>
+    </div>
+    <br>
+    <div class="row">
+        <label for="reservation_starts">Date Reservation Starts:</label>
+        <input type="text" id="reservation_starts" name="reservation_starts" value="{{info.Date_Reservation_Starts}}" placeholder="YYYY-MM-DD">
+    </div>
+    <br>
+    <div class="row">
+        <label for="reservation_ends">Date Reservation Ends:</label>
+        <input type="text" id="reservation_ends" name="reservation_ends" value="{{info.Date_Reservation_Ends}}" placeholder="YYYY-MM-DD">
+    </div>
+    <br>
+    <div class="row">
+        <label for="total_cost">Total Night Cost:</label>
+        <input type="number" id="total_cost" name="total_cost" value="{{info.Total_Nights_Cost}}">
+    </div>
+    <br>
+    <div class="row">
+        <label for="pending_payment">Pending Payment:</label>
+        <select name="pending_payment" id="pending_payment">
+        {% if info.Pending_Payment == "1" %}
+            <option value="1" selected>Yes</option>
+            <option value="0">No</option>
+        {% else %}
+            <option value="1">Yes</option>
+            <option value="0" selected>No</option>
+        {% endif %}
+        </select>
+    </div>
+    <br>
+    <input type="Submit" value="Submit" id="edit_form" name="edit_form">
+    <a href="/reservations"><input type="button" value="Cancel"></a>
+</form>
+{% endfor %}
+<br>
+{% endblock body %}

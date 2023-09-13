@@ -1,0 +1,69 @@
+{% extends 'main.j2' %}
+
+{% block body %}
+<h3>Edit Room</h3>
+{% for info in data %}
+<form id="editform" action="/edit_room/{{info.Room_ID}}" method="POST" style="text-align: left;">
+    <div class="row">
+        <label for="room_id">Room ID:</label>
+        <input type="number" id="room_id" name="room_id" value="{{info.Room_ID}}" readonly>
+    </div>
+    <br>
+    <div class="row">
+        <label for="room_size">Room Size:</label>
+        <input type="number" id="room_size" name="room_size" value="{{info.Room_Size}}">
+    </div>
+    <br>
+    <div class="row">
+        <label for="room_type">Room Type:</label>
+        <select name="room_type" id="room_type">
+        {% if info.Room_Type == "Sea View" %}
+            <option value="{{info.Room_Type}}" selected>{{info.Room_Type}}</option>
+            <option value="Garden View">Garden View</option>
+            <option value="Street View">Street View</option>
+        {% elif info.Room_Type == "Garden View" %}
+            <option value="{{info.Room_Type}}" selected>{{info.Room_Type}}</option>
+            <option value="Sea View">Sea View</option>
+            <option value="Street View">Street View</option>
+        {% else %}
+            <option value="{{info.Room_Type}}" selected>{{info.Room_Type}}</option>
+            <option value="Garden View">Garden View</option>
+            <option value="Sea View">Sea View</option>
+        {% endif %}
+        </select>
+    </div>
+    <br>
+    <div class="row">
+        <label for="room_number">Room Number:</label>
+        <input type="number" id="room_number" name="room_number" value="{{info.Number_Room}}">
+    </div>
+    <br>
+    <div class="row">
+        <label for="room_availability">Address:</label>
+        <select name="room_availability" id="room_availability">
+            {% if info.Room_Availability == 1 %}
+            <option value="1" selected><p style="color: green;">Available</p></option>
+            <option value="0"><p style="color: red;">Not Available</p></option>
+            {% else %}
+            <option value="0" selected><p style="color: red;">Not Available</p></option>
+            <option value="1"><p style="color: green;">Available</p></option>
+            {% endif %}
+        </select>
+    </div>
+    <br>
+    <div class="row">
+        <label for="room_floor">Room Floor:</label>
+        <input type="number" id="room_floor" name="room_floor" value="{{info.Room_Floor}}">
+    </div>
+    <br>
+    <div class="row">
+        <label for="room_rate">Room Flat Rate per Night:</label>
+        <input type="number" id="room_rate" name="room_rate" value="{{info.Flat_Rate_Per_Night}}">
+    </div>
+    <br>
+    <input type="Submit" value="Submit" id="edit_form" name="edit_form">
+    <a href="/rooms"><input type="button" value="Cancel"></a>
+</form>
+{% endfor %}
+<br>
+{% endblock body %}
